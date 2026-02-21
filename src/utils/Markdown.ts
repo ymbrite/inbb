@@ -13,7 +13,7 @@ export async function markdownToHtml(markdown: string) {
     .use(gfm)
     .use(remarkRehype)
     .use(rehypePrism)
-    .use(html, { sanitize: false })
+    .use(html)
     .process(markdown);
   return result.toString().replace(/@@baseUrl@@/g, process.env.baseUrl || '');
 }
